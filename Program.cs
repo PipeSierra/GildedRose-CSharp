@@ -33,7 +33,8 @@ namespace GildedRose
                     SellIn = 5,
                     Quality = 49
                 },
-				// this conjured item does not work properly yet
+
+                // this conjured item works properly now
 				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
@@ -51,6 +52,8 @@ namespace GildedRose
                 Console.WriteLine("");
                 app.UpdateQuality();
             }
+
+            Console.ReadKey();
         }
     }
 }
