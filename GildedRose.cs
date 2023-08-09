@@ -16,7 +16,7 @@ namespace GildedRose
             {
                 if (Items[i].Name != "Sulfuras, Hand of Ragnaros") Items[i].SellIn = Items[i].SellIn - 1;
 
-                if (Items[i].Name != "Aged Brie" && Items[i].Name != "Backstage passes to a TAFKAL80ETC concert" && Items[i].Name != "Sulfuras, Hand of Ragnaros")
+                if (Items[i].Name != "Aged Brie" && !Items[i].Name.Contains("Backstage passes") && Items[i].Name != "Sulfuras, Hand of Ragnaros")
                 {
                     if (Items[i].Quality > 0) Items[i].Quality--;
                     if (Items[i].SellIn < 0 && Items[i].Quality > 0) Items[i].Quality--;
@@ -29,18 +29,16 @@ namespace GildedRose
                 }
                 else
                 {
-                    if (Items[i].Name == "Aged Brie" && Items[i].Quality < 50)
-                    {
+                    if (Items[i].Name == "Aged Brie" && Items[i].Quality < 50)                    
                         Items[i].Quality++;
-                        if (Items[i].SellIn < 0 && Items[i].Quality < 50) Items[i].Quality++;
-                    }
-                    else if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
+                    
+                    else if (Items[i].Name.Contains("Backstage passes"))
                     {
                         if (Items[i].Quality < 50) Items[i].Quality++;
 
-                        if (Items[i].SellIn < 10 && Items[i].Quality < 50) Items[i].Quality++;
+                        if (Items[i].SellIn < 11 && Items[i].Quality < 50) Items[i].Quality++;
 
-                        if (Items[i].SellIn < 5 && Items[i].Quality < 50) Items[i].Quality++;
+                        if (Items[i].SellIn < 6 && Items[i].Quality < 50) Items[i].Quality++;
 
                         if (Items[i].SellIn < 0) Items[i].Quality = 0;
                     }
